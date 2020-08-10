@@ -119,4 +119,21 @@ INSERT INTO Booking (ClientId, TourName, EventMonth, EventDay, EventYear, Paymen
 select *
 from Client
 
+select B.GivenName, B.Surname, A.TourName, C.Description, A.EventYear, A.EventMonth, A.EventDay, A.Payment
+from Booking A
+LEFT JOIN Client B on A.ClientId = B.ClientId
+LEFT JOIN Tour C on A.TourName = C.TourName
 
+
+Select EventMonth, TourName, Count(EventMonth) as NumBooking
+from Booking
+group by EventMonth, TourName
+
+Select Payment
+from Booking
+where Payment > (select AVG(Payment) from Booking)
+
+Create VIEW Bob AS
+Select Payment
+from Booking
+where Payment > (select AVG(Payment) from Booking)
