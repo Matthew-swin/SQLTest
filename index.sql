@@ -119,10 +119,11 @@ INSERT INTO Booking (ClientId, TourName, EventMonth, EventDay, EventYear, Paymen
 select *
 from Client
 
-select B.GivenName, B.Surname, A.TourName, C.Description, A.EventYear, A.EventMonth, A.EventDay, A.Payment
+select B.GivenName, B.Surname, A.TourName, C.Description, A.EventYear, A.EventMonth, A.EventDay, D.EventFee
 from Booking A
 LEFT JOIN Client B on A.ClientId = B.ClientId
 LEFT JOIN Tour C on A.TourName = C.TourName
+LEFT JOIN Event D on A.TourName = D.TourName 
 
 
 Select EventMonth, TourName, Count(EventMonth) as NumBooking
