@@ -79,5 +79,44 @@ CREATE TABLE Booking (
 
 GO;
 
+-- select *
+-- from  sys.tables
+
+INSERT INTO Client (ClientId, Surname, GivenName, Gender) VALUES 
+(1	,'Taylor'	,'Price',	'M') 
+,(2	,'Ellyse',	'Gamble',	'F')
+,(3	,'Tilly',	'Tan',	'F')
+,(103219809, 'Jester', 'Matthew', 'M')
+;
+
+INSERT INTO Tour (TourName, Description) VALUES
+('North', 'Tour of wineries and outlets of the Bedigo and Castlemaine region')
+,('South', 'Tour of wineries and outlets of Mornington Penisula')
+,('West', 'Tour of wineries and outlets of the Geelong and Otways region')
+;
+
+INSERT INTO Event (TourName, EventMonth, EventDay, EventYear, EventFee) VALUES
+('North',	'Jan'	,9	,2016,	200)
+,('North',	'Feb'	,13	,2016,	225)
+,('South',	'Jan'	,9	,2016,	200)
+,('South',	'Jan'	,16	,2016,	200)
+,('West',	'Jan'	,29	,2016,	225)
+;
+
+INSERT INTO Booking (ClientId, TourName, EventMonth, EventDay, EventYear, Payment, DateBooked) VALUES
+(1,	'North',	'Jan',	9,	2016,200,	'2015-12-10')
+,(2,	'North',	'Jan',	9,	2016,200,	'2015-12-16')
+,(1,	'North',	'Feb',	13,	2016,225, '2016-01-08')
+,(2,	'North',	'Feb',	13,	2016,125,	'2016-01-14')
+,(3,	'North',	'Feb',	13,	2016,225,	'2016-02-3')
+,(1,	'South',	'Jan',	9,	2016,200,	'2015-12-10')
+,(2,	'South',	'Jan',	16,	2016,200,	'2015-12-18')
+,(3,	'South',	'Jan',	16,	2016,200,	'2016-01-09')
+,(2,	'West',	'Jan',	29,	2016,	225,	'2015-12-17')
+,(3,	'West',	'Jan',	29,	2016,	200, '2015-12-18')
+;
+
 select *
-from  sys.tables
+from Client
+
+
