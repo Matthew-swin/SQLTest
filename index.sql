@@ -140,3 +140,14 @@ where Payment > (select AVG(Payment) from Booking)
 
 select * 
 FROM Bob
+
+--selecting all the amounts to show not missing data
+select Payment
+from Booking
+-- showing the avg
+select AVG(Payment)
+from Booking
+-- showing the avg is lower then the values
+select Payment
+from Booking 
+where Payment > 200
