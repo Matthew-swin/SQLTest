@@ -133,7 +133,10 @@ Select Payment
 from Booking
 where Payment > (select AVG(Payment) from Booking)
 
-Create VIEW Bob AS
+CREATE VIEW Bob AS
 Select Payment
 from Booking
 where Payment > (select AVG(Payment) from Booking)
+
+select * 
+FROM Bob
