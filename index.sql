@@ -129,17 +129,17 @@ Select EventMonth, TourName, Count(EventMonth) as NumBooking
 from Booking
 group by EventMonth, TourName
 
-Select Payment
+Select *
 from Booking
 where Payment > (select AVG(Payment) from Booking)
 
-CREATE VIEW Bob AS
-Select Payment
+CREATE VIEW Tom AS
+Select *
 from Booking
 where Payment > (select AVG(Payment) from Booking)
 
 select * 
-FROM Bob
+FROM Tom
 
 --selecting all the amounts to show not missing data
 select Payment
