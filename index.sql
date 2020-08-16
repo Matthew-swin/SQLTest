@@ -11,10 +11,9 @@
 -- PK (TourName, EventDay, EventMonth, EventYear)
 -- FK (TourName) References Tour
 
--- Booking (Tourname, EventDay, EventMonth, EventYear, ClientID, DateBooked, Payment)
--- PK (Tourname, EventDay, EventMonth, EventYear)
--- FK (TourName) references Tour
--- FK (EventDay, EventMonth, EventYear) References Tour
+-- Booking (TourName, EventDay, EventMonth, EventYear, ClientID, DateBooked, Payment)
+-- PK (ClientID, TourName, EventDay, EventMonth, EventYear)
+-- FK (TourName, EventDay, EventMonth, EventYear) References Event
 -- FK(ClientID) References Client
 
 CREATE DATABASE Test;
@@ -124,6 +123,23 @@ from Booking A
 LEFT JOIN Client B on A.ClientId = B.ClientId
 LEFT JOIN Tour C on A.TourName = C.TourName
 LEFT JOIN Event D on A.TourName = D.TourName 
+
+--corrected version of task 4 query 1
+--Question V
+--Write a query that shows the client first name and surname, the tour name and description,
+--the tour event year, month, day and fee, the booking date and the fee paid for the booking.
+select C.GivenName, C.Surname, E.TourName, T.Description, B.EventYear, B.EventMonth, B.EventDay, E.EventFee, B.DateBooked, B.Payment
+from Booking B
+left join Event E 
+on B.TourName = E.TourName 
+and B.EventYear = E.EventYear
+and B.EventMonth = E.EventMonth
+and B.EventDay = E.EventDay
+LEFT Join Tour T ON
+E.TourName = T.TourName
+left join Client C 
+on B.ClientId = C.ClientId
+
 
 
 Select EventMonth, TourName, Count(EventMonth) as NumBooking
