@@ -16,6 +16,9 @@
 -- FK (TourName, EventDay, EventMonth, EventYear) References Event
 -- FK(ClientID) References Client
 
+
+
+
 CREATE DATABASE Test;
 
 SELECT *  
@@ -82,9 +85,9 @@ GO;
 -- from  sys.tables
 
 INSERT INTO Client (ClientId, Surname, GivenName, Gender) VALUES 
-(1	,'Taylor'	,'Price',	'M') 
-,(2	,'Ellyse',	'Gamble',	'F')
-,(3	,'Tilly',	'Tan',	'F')
+(1	,'Price'	,'Taylor',	'M') 
+,(2	,'Gamble',	'Ellyse',	'F')
+,(3	,'Tan',	'Tilly',	'F')
 ,(103219809, 'Jester', 'Matthew', 'M')
 ;
 
